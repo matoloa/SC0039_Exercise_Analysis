@@ -239,4 +239,13 @@ if __name__ == "__main__":
     dfoutput = build_dfoutput(dfdata=dfdata,
                               t_EPSP_amp=t_EPSP_amp,
                               t_EPSP_slope=t_EPSP_slope)
+    print()
+    print("Results:")
     print(dfoutput)
+    output_dir = "output"
+    if not os.path.exists(output_dir): # ensure the default output directory exists
+        os.mkdir(output_dir)
+    output_path = f"{output_dir}/output.csv"
+    dfoutput.to_csv(output_path)
+    print()
+    print(f"Results stored as {os.getcwd()}/{output_path}")
